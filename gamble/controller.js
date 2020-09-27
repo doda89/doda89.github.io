@@ -147,7 +147,7 @@ function GetMatches(date) {
       html += "<td>";
       html += '<a href="' + path + '">Check Teams</a>';
       html += "</td>";
-      html += "<td class='add plus'>" + "<span class='glyphicon glyphicon-plus-sign button clickable-row' aria-hidden='true'></span>" + "</td>";
+      html += "<td onclick="Add()" class='add plus'>" + "<span class='glyphicon glyphicon-plus-sign button clickable-row' aria-hidden='true'></span>" + "</td>";
       html += "</tr>";
     });
     html += "</tbody>";
@@ -168,4 +168,37 @@ function HideIfChecked() {
     if ($(this).find("td.alt").html() === "" && $("input:checked").length === 1)
       $(this).hide();
   });
+}
+function Add() {
+  $(this).removeClass('add');
+  var kod = $(this).parent().find('td:eq(0)').html();
+  var saat = $(this).parent().find('td:eq(1)').html();
+  var home = $(this).parent().find('td:eq(2)').html();
+  var away = $(this).parent().find('td:eq(3)').html();
+  var MS1 = $(this).parent().find('td:eq(4)').html();
+  var MS0 = $(this).parent().find('td:eq(5)').html();
+  var MS2 = $(this).parent().find('td:eq(6)').html();
+  var alt = $(this).parent().find('td:eq(7)').html();
+  var ust = $(this).parent().find('td:eq(8)').html();
+  var link = $(this).parent().find('td:eq(9)').html();
+  if (ust[ust.length - 1] === "\n")
+    ust = ust.slice(0, -1);
+  $(this).attr('id', kod);
+  var kod_td = "<td>" + kod + "</td>";
+  var home_td = "<td>" + home + "</td>";
+  var away_td = "<td>" + away + "</td>";
+  var MS1td = "<td class='hid'>" + MS1 + "</td>";
+  var MS0td = "<td class='hid'>" + MS0 + "</td>";
+  var MS2td = "<td class='hid'>" + MS2 + "</td>";
+  var alt_td = "<td class='hid'>" + alt + "</td>";
+  var ust_td = "<td class='hid'>" + ust + "</td>";
+
+  var minus = "<td class='minus'>" + "<span class='glyphicon glyphicon-minus-sign button' aria-hidden='true'></span>" + "</td>";
+  var html = "<tr>" + kod_td + home_td + away_td + MS1td + MS0td + MS2td + alt_td + ust_td + minus + "</tr>";
+  for (var i = 0; i < html.length; i++) {
+    html = html.replace(".", ",");
+  }
+  $('#selectedMatches').append(html);
+  download();
+
 }
