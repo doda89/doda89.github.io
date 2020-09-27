@@ -5,28 +5,22 @@
     <title>Result Page</title>
     <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
-
-    <!-- Optional theme -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
-
-    <!-- Latest compiled and minified JavaScript -->
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="style.css">
-
     <script src="main.js"></script>
-
-
 </head>
 <body>
     <div class="col-md-9">
-        <div class="row"><strong>Date : </strong><label id="doc"></label></div>
-       <p id="p5">Please select the date range to see the matches from the dropdown menu </p>
-
-
+      <label id="startDateLabel">Start Date:</label>
+      <input type="date" id="startDate" name="startDate">
+      <label for="endDate">End Date:</label>
+      <input type="date" id="endDate" name="endDate">
+      <br>
+      <button class="btn btn-info" id="bringMatches" onclick="BringMatches()" type="button">Bring Matches!</button>
+      <p id="p1">Please select the date range to see the matches</p>
     </div>
     <div id="container" class="col-md-9"></div>
-
-
     <div id="container_form" class="col-md-3">
         <form>
             <div class="form-group">
@@ -86,38 +80,16 @@
                     </div>
                 </div>
                 <div class="row text-right">
-                    <div class="col-md-2">
-                        <div class="dropdown">
-                            <button class="btn btn-success dropdown-toggle " type="button" id="ddbtn" data-toggle="dropdown">S
-                                <span class="caret"></span></button>
-                            <ul class="dropdown-menu">
-                                <li id="20-26"><a href="#">20-26 September</a></li>
-                                <li id="27-3"><a href="#">27-3 September</a></li>
-                                <li id="4-10"><a href="#">4-10 October</a></li>
-                                <li id="11-17"><a href="#">11-17 October</a></li>
-                                <li id="18-24"><a href="#">18-24 October</a></li>
-                                <li id="25-31"><a href="#">25-31 October</a></li>
-                                <li id="1-7"><a href="#">1-7 November</a></li>
-                                <li id="8-13"><a href="#">8-13 November</a></li>
-                                <li id="14-20Nov"><a href="#">14-20 November</a></li>
-                                <li id="21-27Nov"><a href="#">21-27 November</a></li>
-                                <li id="28-4Dec"><a href="#">28-4 December</a></li>
-                                <li id="5-11Dec"><a href="#">5-11 December</a></li>
-                            </ul>
-                        </div>
+                    <div class="col-md-3">
+                       <button class="btn btn-info" id="filter" onclick="Filter()" type="button">Filter</button>
                     </div>
                     <div class="col-md-3">
-                        <input class="btn btn-info btns" id="filter" type="button" value="Filter"/>
+                      <button class="btn btn-primary" id="reset" onclick="Reset()" type="button">Reset</button>
                     </div>
                     <div class="col-md-3">
-                        <input class="btn btn-primary btns" id="reset" type="button" value="Reset"/>
+                      <button class="btn btn-warning" id="clear" onclick="Clear()" type="button">Clear</button>
                     </div>
-                    <div class="col-md-3">
-                        <input class="btn btn-warning btns" id="clear" type="button" value="Clear" />
-                    </div>
-
                 </div>
-
             </div>
         </form>
         <div class="checkboxdiv">
@@ -126,7 +98,6 @@
         <form class="form">
             <div class="col-md-12">
                 <div class="row">
-
                     Total Matches: <label id="p1"></label><br/>
                     Total Ties: <label id="p2"></label><br/>
                     Ties Percentage: <label id="p3"></label><br/>
@@ -170,7 +141,6 @@
                             <label id="44top3"></label>
                         </div>
                     </div>
-
                 </div>
             </div>
         </form>
