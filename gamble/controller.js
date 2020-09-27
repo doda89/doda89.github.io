@@ -149,9 +149,7 @@ function GetMatches(date) {
       html += "<td>";
       html += '<a href="' + path + '">Check Teams</a>';
       html += "</td>";
-      html += "<td onclick="
-      Add()
-      " class='add plus'>" + "<span class='glyphicon glyphicon-plus-sign button clickable-row' aria-hidden='true'></span>" + "</td>";
+      html += "<td class='add plus'>" + "<span onclick='Add()' class='glyphicon glyphicon-plus-sign button clickable-row' aria-hidden='true'></span>" + "</td>";
       html += "</tr>";
     });
     html += "</tbody>";
