@@ -167,7 +167,7 @@ function Filter() {
   $('#22top3').html(result[2][0] + "   " + result[2][1] + "   " + result[2][2]);
   $('#33top3').html(result[3][0] + "   " + result[3][1] + "   " + result[3][2]);
   $('#44top3').html(result[4][0] + "   " + result[4][1] + "   " + result[4][2]);
-})
+}
 
 function GetMatches(doc) {
   $.get('CsvFiles/CsvFinished/' + date + '.csv', function(data) {
