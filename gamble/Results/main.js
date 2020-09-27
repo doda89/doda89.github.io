@@ -171,7 +171,6 @@ function Filter() {
 
 function GetMatches(date) {
   $.get('CsvFiles/CsvFinished/' + date + '.csv', function(data) {
-    $.get(doc, function(data) {
       var html = "<table class='table table-striped' >";
       html += "<thead>";
       html += "<tr>";
