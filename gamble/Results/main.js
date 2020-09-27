@@ -220,7 +220,6 @@ function GetMatches(date) {
       $('#container').empty().append(html);
       doit()();
     });
-  });
 }
 
 function getResults(array) {
