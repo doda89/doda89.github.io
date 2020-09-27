@@ -189,11 +189,12 @@ function GetMatches(date) {
       html += "</tr>";
       html += "</thead>";
       html += "<tbody>";
+      html += "<tr><td class='date'>" + date + "<td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>";
+
       var rows = data.split("\n");
       rows.forEach(function getvalues(ourrow) {
         var columns = ourrow.split(",");
 
-        html += "<tr><td class='date'>" + date + "<td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>";
 
         html += "<tr>";
         html += "<td>" + columns[0] + "</td>";
