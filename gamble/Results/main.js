@@ -40,7 +40,7 @@ function Clear() {
   $('#away_max').val('');
   $('#ms_home').val('');
   $('#ms_away').val('');
-});
+}
 
 function Filter() {
   var count = 0;
