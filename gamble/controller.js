@@ -12,13 +12,15 @@ var getDates = function(startDate, endDate) {
   }
   return dates;
 }
-function Reset(){
+function Reset() {
   $('#container').empty();
 }
 function BringMatches() {
   $('#container').empty();
   var dates = getDates((new Date(document.getElementById('startDate').value)), (new Date(document.getElementById('endDate').value)));
-  dates.sort(function(a,b){return a.getTime() - b.getTime()}).forEach(function(date) {
+  dates.sort(function(a, b) {
+    return a.getTime() - b.getTime()
+  }).forEach(function(date) {
     GetMatches(date.toISOString().split('T')[0]);
   });
 }
@@ -147,7 +149,9 @@ function GetMatches(date) {
       html += "<td>";
       html += '<a href="' + path + '">Check Teams</a>';
       html += "</td>";
-      html += "<td onclick="Add()" class='add plus'>" + "<span class='glyphicon glyphicon-plus-sign button clickable-row' aria-hidden='true'></span>" + "</td>";
+      html += "<td onclick="
+      Add()
+      " class='add plus'>" + "<span class='glyphicon glyphicon-plus-sign button clickable-row' aria-hidden='true'></span>" + "</td>";
       html += "</tr>";
     });
     html += "</tbody>";
@@ -200,5 +204,4 @@ function Add() {
   }
   $('#selectedMatches').append(html);
   download();
-
 }

@@ -167,62 +167,63 @@ function Filter() {
   $('#22top3').html(result[2][0] + "   " + result[2][1] + "   " + result[2][2]);
   $('#33top3').html(result[3][0] + "   " + result[3][1] + "   " + result[3][2]);
   $('#44top3').html(result[4][0] + "   " + result[4][1] + "   " + result[4][2]);
-});
+})
 
 function GetMatches(doc) {
-$.get('CsvFiles/CsvFinished/' + date + '.csv', function(data) {
-  $.get(doc, function(data) {
-
-    var html = "<table class='table table-striped' >";
-    html += "<thead>";
-    html += "<tr>";
-    html += "<th>Kod</th>";
-    html += "<th>Saat</th>";
-    html += "<th>Home</th>";
-    html += "<th>Away</th>";
-    html += "<th>1</th>";
-    html += "<th>0</th>";
-    html += "<th>2</th>";
-    html += "<th>Alt</th>";
-    html += "<th>Ust</th>";
-    html += "<th>IY</th>";
-    html += "<th>MS</th>";
-    html += "<th> Link </th>";
-    html += "</tr>";
-    html += "</thead>";
-    html += "<tbody>";
-    var rows = data.split("\n");
-    rows.forEach(function getvalues(ourrow) {
-      var columns = ourrow.split(",");
-
-      html += "<tr><td class='date'>" + date + "<td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>";
-
+  $.get('CsvFiles/CsvFinished/' + date + '.csv', function(data) {
+    $.get(doc, function(data) {
+      var html = "<table class='table table-striped' >";
+      html += "<thead>";
       html += "<tr>";
-      html += "<td>" + columns[0] + "</td>";
-      html += "<td>" + columns[1] + "</td>";
-      html += "<td>" + columns[2] + "</td>";
-      html += "<td>" + columns[3] + "</td>";
-      html += "<td class='MS1'>" + columns[4] + "</td>";
-      html += "<td class='MS0'>" + columns[5] + "</td>";
-      html += "<td class='MS2'>" + columns[6] + "</td>";
-      html += "<td class='alt'>" + columns[7] + "</td>";
-      html += "<td class='ust'>" + columns[8] + "</td>";
-      html += "<td>" + columns[9] + "</td>";
-      html += "<td class='MS'>" + columns[10] + "</td>";
-
-      var path = "http://istatistik.nesine.com/HeadToHead/Index.aspx?matchCode=" + columns[0];
-
-      html += '<td>';
-      html += '<a href="' + path + '">Check Teams</a>';
-      html += '</td>';
+      html += "<th>Kod</th>";
+      html += "<th>Saat</th>";
+      html += "<th>Home</th>";
+      html += "<th>Away</th>";
+      html += "<th>1</th>";
+      html += "<th>0</th>";
+      html += "<th>2</th>";
+      html += "<th>Alt</th>";
+      html += "<th>Ust</th>";
+      html += "<th>IY</th>";
+      html += "<th>MS</th>";
+      html += "<th> Link </th>";
       html += "</tr>";
+      html += "</thead>";
+      html += "<tbody>";
+      var rows = data.split("\n");
+      rows.forEach(function getvalues(ourrow) {
+        var columns = ourrow.split(",");
+
+        html += "<tr><td class='date'>" + date + "<td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>";
+
+        html += "<tr>";
+        html += "<td>" + columns[0] + "</td>";
+        html += "<td>" + columns[1] + "</td>";
+        html += "<td>" + columns[2] + "</td>";
+        html += "<td>" + columns[3] + "</td>";
+        html += "<td class='MS1'>" + columns[4] + "</td>";
+        html += "<td class='MS0'>" + columns[5] + "</td>";
+        html += "<td class='MS2'>" + columns[6] + "</td>";
+        html += "<td class='alt'>" + columns[7] + "</td>";
+        html += "<td class='ust'>" + columns[8] + "</td>";
+        html += "<td>" + columns[9] + "</td>";
+        html += "<td class='MS'>" + columns[10] + "</td>";
+
+        var path = "http://istatistik.nesine.com/HeadToHead/Index.aspx?matchCode=" + columns[0];
+
+        html += '<td>';
+        html += '<a href="' + path + '">Check Teams</a>';
+        html += '</td>';
+        html += "</tr>";
+      });
+      html += "</tbody>";
+      html += "</table>";
+      $('#container').empty().append(html);
+      doit()();
     });
-    html += "</tbody>";
-    html += "</table>";
-    $('#container').empty().append(html);
-    doit()();
   });
 }
+
 function getResults(array) {
   var dict = {};
   for (var i = 0; i < array.length; i++) {
